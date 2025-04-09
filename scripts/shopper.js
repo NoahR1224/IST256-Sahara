@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('shopperForm');
+    const form = document.getElementById('shopper-form'); // Corrected ID
 
     if (form) {
         form.addEventListener('submit', function (event) {
@@ -14,14 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 street: document.getElementById('street').value,
                 city: document.getElementById('city').value,
                 state: document.getElementById('state').value,
-                zip: document.getElementById('zip').value
+                zip: document.getElementById('zipcode').value // Corrected ID
             };
+
+            function phoneNumber(value) {
+                return value ? "Phone Number: " + value + "\n" : "";
+            }
 
             alert(
                 "Saved Profile:\n" +
-                "First Name: " + formData["first-name"] + "\n" +
-                "Last Name: " + formData["last-name"] + "\n" +
+                "First Name: " + formData.firstName + "\n" +
+                "Last Name: " + formData.lastName + "\n" +
                 "Age: " + formData.age + "\n" +
+                phoneNumber(formData.phone) +
                 "Email: " + formData.email + "\n" +
                 "Street Address: " + formData.street + "\n" +
                 "City: " + formData.city + "\n" +
